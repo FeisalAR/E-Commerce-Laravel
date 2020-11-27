@@ -58,7 +58,7 @@ Belajar PHP. Halaman dari Controller. <br>
                 <td>{{$row->jenis_produk}}</td>
                 <td>{{$row->nama_produk}}</td>
                 <td>{{$row->jumlah_stok}}</td>
-                <td>{{$row->harga_barang}}</td>
+                <td>@format_uang($row->harga_barang)</td>
             </tr>
         @endforeach
         </tbody>
@@ -66,4 +66,5 @@ Belajar PHP. Halaman dari Controller. <br>
 
     </table>
 </body>
+
 </html>
