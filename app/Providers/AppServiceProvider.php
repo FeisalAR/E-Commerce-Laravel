@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('format_uang', function ($uang) {
-            return "<?php echo 'Rp. ' . number_format($uang, 2); ?>";
+            return "<?php echo 'Rp. ' . number_format($uang); ?>";
         });
     }
 }
