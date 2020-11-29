@@ -66,11 +66,22 @@ class ProdukController extends Controller
 
         $input = $request->all();
         unset($input['_token']);
+        unset($input['_method']);
         $status = DB::table('t_produk')->where('id', $id)->update($input);
         if ($status) {
             return redirect('/produk')->with('success', 'Data berhasil diubah');
         } else {
             return redirect('/produk/create')->with('error', 'Data gagal diubah');
+        }
+    }
+
+    public function destroy($id)
+    {
+        $status = DB::table('t_produk')->where('id', $id)->delete();
+        if ($status) {
+            return redirect('/produk')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect('/produk/create')->with('error', 'Data gagal dihapus');
         }
     }
 

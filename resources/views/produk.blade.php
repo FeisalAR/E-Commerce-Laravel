@@ -60,7 +60,14 @@ Belajar PHP. Halaman dari Controller. <br>
                 <td>{{$row->nama_produk}}</td>
                 <td>{{$row->jumlah_stok}}</td>
                 <td>@format_uang($row->harga_barang)</td>
-            <td><a href="{{ url('/produk/' . $row->id . '/edit')}}"><i class="nav-icon fas fa-edit"></i>Edit</a></td>
+            <td>
+                <a href="{{ url('/produk/' . $row->id . '/edit')}}"><i class="nav-icon fas fa-edit"></i>Edit</a> |
+            <form action="{{url('produk', $row->id)}}" method="POST">
+                @method('DELETE')
+                @csrf
+                <input type="submit" value="Delete">
+            </form>
+            </td>
             </tr>
         @endforeach
         </tbody>

@@ -29,16 +29,16 @@ namespace App\Http\Controllers;
     @endif
 
     <div class="form-group">
-Nama Produk : <input type="text" class="form-control" name="nama_produk" value="{{old('nama_produk', @$produk->nama_produk)}}">
+        Nama Produk : <input type="text" class="form-control" name="nama_produk" value="{{old('nama_produk', @$produk->nama_produk)}}">
     </div>
     <div class="form-group">
-    Jumlah Stok : <input type="number" class="form-control" name="jumlah_stok"  value="{{old('jumlah_stok', @$produk->jumlah_stok)}}">
+        Jumlah Stok : <input type="number" class="form-control" name="jumlah_stok"  value="{{old('jumlah_stok', @$produk->jumlah_stok)}}">
     </div>
     <div class="form-group">
-    Harga Barang : <input type="number" class="form-control" name="harga_barang"  value="{{old('harga_barang', @$produk->harga_barang)}}">
+        Harga Barang : <input type="number" class="form-control" name="harga_barang"  value="{{old('harga_barang', @$produk->harga_barang)}}">
     </div>
     <div class="form-group">
-    Jenis Produk :
+        Jenis Produk :
     <select class="form-control" name="jenis_produk">
         <option>- Pilih Jenis Produk -</option>
         <option value="Makanan Ringan" {{old('jenis_produk', @$produk->jenis_produk == "Makanan Ringan" ? "selected" : "")}}>Makanan Ringan</option>

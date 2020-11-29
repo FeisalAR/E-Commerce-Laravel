@@ -35,7 +35,9 @@ Route::post('/produk', [ProdukController::class, 'store']);
 //Module 5 Update
 Route::get('/produk/{id}/edit', [ProdukController::class, 'edit']);
 
-Route::patch('/produk/(id}', [ProdukController::class, 'update']);
+Route::patch('/produk/{id}', [ProdukController::class, 'update']);
+
+Route::delete('/produk/{id}', [ProdukController::class, 'destroy']);
 
 
 
