@@ -11,7 +11,7 @@
 <body>
     <div class="text-center">
 Belajar PHP. Halaman dari Controller. <br>
-    <a class="btn btn-primary" href="{{url('/produk/create')}}">Tambah Data</a>
+    <a class="btn btn-primary" href="{{url('/produk/create')}}"><i class="nav-icon fas fa-plus"></i>Tambah Data</a>
     </div>
 
     @if(session('success'))
@@ -48,6 +48,7 @@ Belajar PHP. Halaman dari Controller. <br>
                 <th>Nama Produk</th>
                 <th>Jumlah Stok</th>
                 <th>Harga Barang</th>
+                <th>Aksi</th>
             </tr>
         </thead>
 
@@ -59,6 +60,7 @@ Belajar PHP. Halaman dari Controller. <br>
                 <td>{{$row->nama_produk}}</td>
                 <td>{{$row->jumlah_stok}}</td>
                 <td>@format_uang($row->harga_barang)</td>
+            <td><a href="{{ url('/produk/' . $row->id . '/edit')}}"><i class="nav-icon fas fa-edit"></i>Edit</a></td>
             </tr>
         @endforeach
         </tbody>

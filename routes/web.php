@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +30,26 @@ Route::get('/produk', [ProdukController::class, 'index']);
 Route::get('/produk/create', [ProdukController::class, 'create']);
 
 Route::post('/produk', [ProdukController::class, 'store']);
+
+
+//Module 5 Update
+Route::get('/produk/{id}/edit', [ProdukController::class, 'edit']);
+
+Route::patch('/produk/(id}', [ProdukController::class, 'update']);
+
+
+
+//Module 4 Routes for SiswaController
+Route::get('/kategori-kelas', [SiswaController::class, 'kategoriKelas']);
+
+Route::get('/kategori-kelas/create', [SiswaController::class, 'createKelas']);
+
+Route::post('/kategori-kelas', [SiswaController::class, 'storeKelas']);
+
+
+
+Route::get('/siswa', [SiswaController::class, 'cetakSiswa']);
+
+Route::get('/siswa/create', [SiswaController::class, 'createSiswa']);
+
+Route::post('/siswa', [SiswaController::class, 'storeSiswa']);
