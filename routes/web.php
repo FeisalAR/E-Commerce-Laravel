@@ -19,6 +19,18 @@ Route::get('/', [ProdukController::class, 'index']);
 
 Route::get('/kategori-produk', [ProdukController::class, 'cetakKategoriProduk']);
 
+Route::get('/kategori-produk/create', [ProdukController::class, 'createKategoriProduk']);
+
+Route::post('/kategori-produk', [ProdukController::class, 'storeKategoriProduk']);
+
+Route::get('/kategori-produk/{id_kategori}/edit', [ProdukController::class, 'editKategoriProduk']);
+
+Route::patch('/kategori-produk/{id_kategori}', [ProdukController::class, 'updateKategoriProduk']);
+
+Route::delete('/kategori-produk/{id_kategori}', [ProdukController::class, 'destroyKategori']);
+
+
+
 Route::get('/checkout', [ProdukController::class, 'checkout']);
 
 Route::get('/registrasi', [ProdukController::class, 'registrasi']);

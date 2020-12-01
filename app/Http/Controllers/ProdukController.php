@@ -41,13 +41,80 @@ class ProdukController extends Controller
         }
     }
 
+
+
+
+
+    public function createKategoriProduk()
+    {
+        return view('form-add-kategori-produk');
+    }
+
+    public function storeKategoriProduk(Request $request)
+    {
+        $rule = [
+            'nama_kategori' => 'required',
+            'diskon'  => 'required|numeric|between:0,99.99',
+        ];
+        $this->validate($request, $rule);
+
+        $input = $request->all();
+        unset($input['_token']);
+        $status = DB::table('t_kategori_produk')->insert($input);
+        if ($status) {
+            return redirect('/kategori-produk')->with('success', 'Data berhasil ditambahkan');
+        } else {
+            return redirect('/kategori-produk/create')->with('error', 'Data gagal ditambahkan');
+        }
+    }
+
     public function cetakKategoriProduk()
     {
         $data['kategori'] = DB::table('t_kategori_produk')
-            ->orderBy('diskon', 'DESC')
+            ->orderBy('nama_kategori', 'ASC')
             ->get();
         return view('kategori-produk', $data);
     }
+
+    public function editKategoriProduk($id_kategori){
+        $data['kategori_produk'] = DB::table('t_kategori_produk')->where('id_kategori', $id_kategori)->first();
+        return view('form-add-kategori-produk', $data);
+    }
+
+    public function updateKategoriProduk(Request $request, $id_kategori){
+        $rule = [
+            'nama_kategori' => 'required',
+            'diskon'  => 'required|numeric|between:0,99.99',
+        ];
+        $this->validate($request, $rule);
+
+        $input = $request->all();
+        unset($input['_token']);
+        unset($input['_method']);
+        $status = DB::table('t_kategori_produk')->where('id_kategori', $id_kategori)->update($input);
+        if ($status) {
+            return redirect('/kategori-produk')->with('success', 'Data berhasil diubah');
+        } else {
+            return redirect('/kategori-produk/create')->with('error', 'Data gagal diubah');
+        }
+    }
+
+    public function destroyKategori($id_kategori)
+    {
+        $status = DB::table('t_kategori_produk')->where('id_kategori', $id_kategori)->delete();
+        if ($status) {
+            return redirect('/kategori-produk')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect('/kategori-produk/create')->with('error', 'Data gagal dihapus');
+        }
+    }
+
+
+
+
+
+
+
 
     //Module 5 - Update & Delete
     public function edit(Request $request, $id){
