@@ -54,7 +54,7 @@ namespace App\Http\Controllers;
     </div>
 
     <div class="form-group">
-        Diskon : <input class="form-control" type="number" name="diskon"  value="{{old('diskon', @$kategori_produk->diskon)}}">
+        Diskon ( % ) : <input class="form-control" type="number" name="diskon"  value="{{old('diskon', @$kategori_produk->diskon)}}">
     </div>
     <input type="submit" class="btn btn-primary" value="Simpan">
 </form>

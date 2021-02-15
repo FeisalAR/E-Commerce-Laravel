@@ -51,7 +51,7 @@ Belajar PHP. Halaman dari Controller. <br>
                 <tr>
                     <td>{{$row->id_kategori}}</td>
                     <td>{{$row->nama_kategori}}</td>
-                    <td>{{$row->diskon*100}}%</td>
+                    <td>{{$row->diskon}}%</td>
                     <td><a href="{{ url('/kategori-produk/' . $row->id_kategori . '/edit')}}"><i class="nav-icon fas fa-edit"></i>Edit</a>
                         <form action="{{url('kategori-produk', $row->id_kategori)}}" method="POST">
                             @method('DELETE')

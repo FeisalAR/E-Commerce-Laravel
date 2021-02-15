@@ -65,7 +65,7 @@ Belajar PHP. Halaman dari Controller. <br>
             <form action="{{url('produk', $row->id)}}" method="POST">
                 @method('DELETE')
                 @csrf
-                <input type="submit" value="Delete">
+                <input type="submit" class="btn btn-primary" value="Delete">
             </form>
             </td>
             </tr>
